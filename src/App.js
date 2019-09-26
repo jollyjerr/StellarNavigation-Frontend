@@ -11,10 +11,10 @@ export default class App extends Component {
 
   dummyData = [{
     id: 1,
-    name: testSystemOne,
+    name: 'testSystemOne'
   }, {
     id: 2,
-    name: testSystemTwo
+    name: 'testSystemTwo'
   }]
 
 
