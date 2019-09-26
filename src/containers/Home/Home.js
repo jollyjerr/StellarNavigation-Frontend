@@ -1,12 +1,22 @@
 import React from 'react'
 
-import StellarSystem from '../../components/StellarSystem/StellarSystem'
+import StellarSystemDemo from '../../components/StellarSystemDemo/StellarSystemDemo'
 
-export default function Home() {
+export default function Home(props) {
+    const {stellarSystems} = props
+
+    const stellarSystemCards = () => {
+        return stellarSystems.map((stellarSystem, i) => {
+            return <StellarSystemDemo 
+                stellarSystem={stellarSystem} 
+                key={i}
+            />
+        })
+    }
 
     return (
         <div>
-            <StellarSystem />
+            {stellarSystemCards()}
         </div>
     )
 }

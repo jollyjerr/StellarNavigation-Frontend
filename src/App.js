@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 
 import './App.css';
+
 import Home from './containers/Home/Home';
+import Navbar from './components/Navbar/Navbar';
 
 export default class App extends Component {
 
@@ -17,11 +19,18 @@ export default class App extends Component {
     name: 'testSystemTwo'
   }]
 
+  componentDidMount = () => {
+    this.setState({
+      stellarSystems: this.dummyData
+    })
+  }
+
 
   render() {
     return (
       <div>
-        <Home />
+        <Navbar />
+        <Home stellarSystems={this.state.stellarSystems} />
       </div>
     )
   }
