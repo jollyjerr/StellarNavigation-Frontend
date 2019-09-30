@@ -6,7 +6,10 @@ export default class StellarSystem extends Component {
     state = {
         w: 0,
         h: 0,
-        elements: []
+        elements: [
+            { data: { id: 'one', label: 'Node 1' }, position: { x: 45, y: 200 } },
+            { data: { id: 'two', label: 'Node 2' }, position: { x: 500, y: 500 } }
+        ]
     }
 
     parseStellarToNodes = (stellarSystem) => {
@@ -38,7 +41,7 @@ export default class StellarSystem extends Component {
             w: window.innerWidth,
             h: window.innerHeight
         })
-        this.parseStellarToNodes(this.props.stellarSystem)
+        // this.parseStellarToNodes(this.props.stellarSystem)
     }
     
     render() {
@@ -52,7 +55,4 @@ export default class StellarSystem extends Component {
     }
 }
 
-// const elements = [
-//     { data: { id: 'one', label: 'Node 1' }, position: { x: 45, y: 200 } },
-//     { data: { id: 'two', label: 'Node 2' }, position: { x: 500, y: 500 } }
-// ];
+

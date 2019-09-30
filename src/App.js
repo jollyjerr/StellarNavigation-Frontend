@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import './App.css';
 
@@ -12,8 +12,7 @@ const BACKEND_URL = 'http://127.0.0.1:5000/stellarsystems'
 export default class App extends Component {
 
   state = {
-    stellarSystems: [],
-    home: true
+    stellarSystems: []
   }
 
   componentDidMount = () => {
@@ -28,13 +27,6 @@ export default class App extends Component {
   }
 
   render() {
-    if(this.state.home) {
-      return(
-        <Router>
-          <Redirect to="/" />
-        </Router>
-      )
-    }
     return (
       <Router>
       <div>
