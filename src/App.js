@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 import './App.css';
 
@@ -26,8 +27,16 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Navbar />
-        <Home stellarSystems={this.state.stellarSystems} />
+        <Router>
+
+          <Navbar />
+
+          <Route path="/" exact>
+            <Home stellarSystems={this.state.stellarSystems} />
+          </Route>
+
+
+        </Router>
       </div>
     )
   }
