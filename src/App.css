@@ -8,13 +8,20 @@ html body {
     display: flex;
     justify-content: space-between;
     padding: 3rem;
+    height: 50rem;
 }
 
 .demo_cards {
     width: 80%;
+    background-color: #6b6b6b;
+    height: 100%;
 }
 
 .dashboard {
     color: rgb(77, 77, 250);
     width: 100%;
+}
+
+.space_purple {
+    color: rgb(77, 77, 250);
 }
