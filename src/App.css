@@ -2,3 +2,18 @@ html body {
     width: 100%;
     font-family: 'Space Mono', monospace;
 }
+
+.home {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem;
+}
+
+.demo_cards {
+    width: 80%;
+}
+
+.dashboard {
+    background-color: antiquewhite;
+    width: 100%;
+}
