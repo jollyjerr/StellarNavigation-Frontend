@@ -24,6 +24,7 @@ export default class App extends Component {
   }
 
   render() {
+    // setUpNav()
     return (
       <div>
         <Navbar />
@@ -33,3 +34,17 @@ export default class App extends Component {
   }
 }
 
+// const setUpNav = () => {
+//   window.onscroll = () => { stickIt() }
+
+//   let navbar = document.getElementById("navbar")
+//   let sticky = navbar.offsetTop
+
+//   function stickIt() {
+//     if (window.pageYOffset >= sticky) {
+//       navbar.classList.add("sticky")
+//     } else {
+//       navbar.classList.remove("sticky")
+//     }
+//   }
+// }
