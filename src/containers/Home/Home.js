@@ -15,7 +15,7 @@ export default function Home(props) {
     }
 
     return (
-        <div>
+        <div className="demo-card-container">
             {stellarSystemCards()}
         </div>
     )

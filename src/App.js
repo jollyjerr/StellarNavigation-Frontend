@@ -24,7 +24,6 @@ export default class App extends Component {
   }
 
   render() {
-    // setUpNav()
     return (
       <div>
         <Navbar />

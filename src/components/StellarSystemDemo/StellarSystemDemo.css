@@ -1,3 +1,8 @@
 .stellar-system-demo {
-    background-color: whitesmoke;
+    background-color: rgba(0, 0, 0, 0);
+    color: silver;
+    width: 100%;
+    height: 10rem;
+    text-align: center;
+    font-size: 150%;
 }
