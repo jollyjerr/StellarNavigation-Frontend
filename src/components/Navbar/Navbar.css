@@ -1,4 +1,8 @@
 .navbar {
     width: 100%;
-    background-color: aqua;
+    background-color: rgb(27, 27, 27);
+}
+
+.navbar img {
+    width: 5rem;
 }

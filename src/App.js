@@ -5,26 +5,23 @@ import './App.css';
 import Home from './containers/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 
+const BACKEND_URL = 'http://127.0.0.1:5000/stellarsystems'
+
 export default class App extends Component {
 
   state = {
     stellarSystems: []
   }
 
-  dummyData = [{
-    id: 1,
-    name: 'testSystemOne'
-  }, {
-    id: 2,
-    name: 'testSystemTwo'
-  }]
-
   componentDidMount = () => {
-    this.setState({
-      stellarSystems: this.dummyData
+    fetch(BACKEND_URL)
+    .then(resp => resp.json())
+    .then(results => {
+      this.setState({
+        stellarSystems: results.systems
+      })
     })
   }
-
 
   render() {
     return (

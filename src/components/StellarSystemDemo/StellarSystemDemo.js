@@ -1,10 +1,11 @@
 import React from 'react'
 import './StellarSystemDemo.css'
 
-export default function StellarSystemDemo(props) {
+export default function StellarSystemDemo({stellarSystem}) {
+
     return (
         <div className="stellar-system-demo">
-            {props.stellarSystem.name}
+            {stellarSystem.name}
         </div>
     )
 }
