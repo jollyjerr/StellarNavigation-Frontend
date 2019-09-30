@@ -1,6 +1,7 @@
 html body {
     width: 100%;
     font-family: 'Space Mono', monospace;
+    text-shadow: 1px 1px #6b6b6b;
 }
 
 .home {
@@ -14,6 +15,6 @@ html body {
 }
 
 .dashboard {
-    background-color: antiquewhite;
+    color: rgb(77, 77, 250);
     width: 100%;
 }
