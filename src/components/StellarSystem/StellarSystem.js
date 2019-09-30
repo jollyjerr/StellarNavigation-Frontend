@@ -13,7 +13,7 @@ export default class StellarSystem extends Component {
     }
 
     componentDidMount = () => { // this will need refactored if window size changes
-        fetch('http://127.0.0.1:5000/stellarsystem/2') // also refactor the backend url... like what
+        fetch(this.props.BACKEND_URL + 'stellarsystem/2') 
         .then(resp => resp.json())
         .then(results => {
                 this.setState({
