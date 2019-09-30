@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
 import './App.css';
 
@@ -12,7 +12,8 @@ const BACKEND_URL = 'http://127.0.0.1:5000/stellarsystems'
 export default class App extends Component {
 
   state = {
-    stellarSystems: []
+    stellarSystems: [],
+    home: true
   }
 
   componentDidMount = () => {
@@ -20,15 +21,23 @@ export default class App extends Component {
     .then(resp => resp.json())
     .then(results => {
       this.setState({
-        stellarSystems: results.systems
+        stellarSystems: results.systems,
+        home: false
       })
     })
   }
 
   render() {
-    return (
-      <div>
+    if(this.state.home) {
+      return(
         <Router>
+          <Redirect to="/" />
+        </Router>
+      )
+    }
+    return (
+      <Router>
+      <div>
 
           <Navbar />
 
@@ -37,26 +46,12 @@ export default class App extends Component {
           </Route>
 
           <Route path="/:stellarsystem">
-            <StellarSystem />
+            <StellarSystem stellarSystem={this.state.stellarSystems[0]} />
           </Route>
 
-        </Router>
       </div>
+      </Router>
     )
   }
 }
 
-// const setUpNav = () => {
-//   window.onscroll = () => { stickIt() }
-
-//   let navbar = document.getElementById("navbar")
-//   let sticky = navbar.offsetTop
-
-//   function stickIt() {
-//     if (window.pageYOffset >= sticky) {
-//       navbar.classList.add("sticky")
-//     } else {
-//       navbar.classList.remove("sticky")
-//     }
-//   }
-// }
