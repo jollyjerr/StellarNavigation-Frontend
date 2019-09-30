@@ -1,6 +1,7 @@
 import React from 'react'
 
 import StellarSystemDemo from '../../components/StellarSystemDemo/StellarSystemDemo'
+import Dashboard from '../../components/Dashboard/Dashboard'
 
 export default function Home(props) {
     const {stellarSystems} = props
@@ -15,8 +16,11 @@ export default function Home(props) {
     }
 
     return (
-        <div className="demo-card-container">
-            {stellarSystemCards()}
+        <div className="home">
+            <Dashboard />
+            <div className="demo_cards">
+                {stellarSystemCards()}
+            </div>
         </div>
     )
 }
