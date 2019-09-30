@@ -1,11 +1,27 @@
 .stellar-system-demo {
+    display: flex;
+    justify-content: flex-start;
     background-color: rgba(0, 0, 0, 0);
     color: silver;
     height: 10rem;
-    text-align: center;
+    /* text-align: center; */
     font-size: 150%;
+    padding: 1rem;
+}
+
+.stellar-system-demo:hover {
+    background-color: rgba(242, 255, 61, 0.685);
 }
 
 .stellar-system-demo li {
     color: silver;
+}
+
+.link {
+    display: block;
+    width: 100%;
+}
+
+.stellar-system-demo img {
+    width: 8rem;
 }
