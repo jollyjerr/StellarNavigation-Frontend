@@ -7,7 +7,7 @@ import Home from './containers/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import StellarSystem from './components/StellarSystem/StellarSystem';
 
-const BACKEND_URL = 'http://127.0.0.1:5000/stellarsystems'
+const BACKEND_URL = 'http://127.0.0.1:5000/'
 
 export default class App extends Component {
 
@@ -16,7 +16,7 @@ export default class App extends Component {
   }
 
   componentDidMount = () => {
-    fetch(BACKEND_URL)
+    fetch(BACKEND_URL + 'stellarsystems')
     .then(resp => resp.json())
     .then(results => {
       this.setState({
@@ -34,11 +34,16 @@ export default class App extends Component {
           <Navbar />
 
           <Route path="/" exact>
-            <Home stellarSystems={this.state.stellarSystems} />
+            <Home 
+              stellarSystems={this.state.stellarSystems}
+            />
           </Route>
 
           <Route path="/:stellarsystem">
-            <StellarSystem stellarSystem={this.state.selectedSystem} />
+            <StellarSystem 
+              stellarSystem={this.state.stellarSystems[0]} 
+              BACKEND_URL={this.BACKEND_URL}
+            />
           </Route>
 
       </div>

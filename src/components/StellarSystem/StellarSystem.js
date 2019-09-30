@@ -12,36 +12,16 @@ export default class StellarSystem extends Component {
         ]
     }
 
-    parseStellarToNodes = (stellarSystem) => {
-        if (stellarSystem) {
-            console.log('if was triggered')
-            let nodeList = []
-            stellarSystem.largeCelestials.forEach(body => {
-                console.log(body)
-                let node = {
-                    data: {
-                        id: body.id,
-                        label: body.name
-                    },
-                    position: {
-                        x: body.radius / 10,
-                        y: body.semi_major_axis / 1000
-                    }
-                }
-                nodeList.push(node)
-            })
-            this.setState({
-                elements: [nodeList]
-            })
-        }
-    }
-
     componentDidMount = () => { // this will need refactored if window size changes
-        this.setState({
-            w: window.innerWidth,
-            h: window.innerHeight
+        fetch('http://127.0.0.1:5000/stellarsystem/2')
+        .then(resp => resp.json())
+        .then(results => {
+                this.setState({
+                w: window.innerWidth,
+                h: window.innerHeight,
+                elements: results
+            })
         })
-        // this.parseStellarToNodes(this.props.stellarSystem)
     }
     
     render() {
