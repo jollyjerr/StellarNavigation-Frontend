@@ -8,7 +8,9 @@ export default function StellarSystemDemo({stellarSystem}) {
 
     const largeCelestials = () => {
        return stellarSystem.largeCelestials.map((body, i) => {
-            return <li key={i}>{body.name}</li>
+           return i < 3 
+            ? <li key={i}>{body.name}</li>
+            : null     
         })
     }
 
@@ -20,10 +22,10 @@ export default function StellarSystemDemo({stellarSystem}) {
                     <img src={logo} alt={stellarSystem.name} />
                 </div>
                 <div className="demo-content">
-                    {/* <p className="space_purple">Featuring...</p>
+                    <p className="space_purple">Featuring...</p>
                     <ul>
                         {largeCelestials()}
-                    </ul>  */}
+                    </ul> 
                 </div>
             </div>
         </Link>

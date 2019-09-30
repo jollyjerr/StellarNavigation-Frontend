@@ -4,13 +4,14 @@ import StellarSystemDemo from '../../components/StellarSystemDemo/StellarSystemD
 import Dashboard from '../../components/Dashboard/Dashboard'
 
 export default function Home(props) {
-    const {stellarSystems} = props
+    const {stellarSystems, selectSystem} = props
 
     const stellarSystemCards = () => {
         return stellarSystems.map((stellarSystem, i) => {
             return <StellarSystemDemo 
                 stellarSystem={stellarSystem} 
                 key={i}
+                selectSystem={selectSystem}
             />
         })
     }

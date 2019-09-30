@@ -38,7 +38,7 @@ export default class App extends Component {
           </Route>
 
           <Route path="/:stellarsystem">
-            <StellarSystem stellarSystem={this.state.stellarSystems[0]} />
+            <StellarSystem stellarSystem={this.state.selectedSystem} />
           </Route>
 
       </div>
