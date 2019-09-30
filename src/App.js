@@ -42,7 +42,7 @@ export default class App extends Component {
           <Route path="/:stellarsystem">
             <StellarSystem 
               stellarSystem={this.state.stellarSystems[0]} 
-              BACKEND_URL={this.BACKEND_URL}
+              BACKEND_URL={BACKEND_URL}
             />
           </Route>
 
