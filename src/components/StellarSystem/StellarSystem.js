@@ -13,7 +13,8 @@ export default class StellarSystem extends Component {
             w: window.innerWidth,
             h: window.innerHeight
         })
-    }   
+    }
+    
 
     render() {
         const elements = [
