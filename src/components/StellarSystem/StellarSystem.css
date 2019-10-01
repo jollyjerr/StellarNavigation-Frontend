@@ -13,6 +13,7 @@
 }
 
 .jumper {
+    font-family: 'Space Mono', monospace;
     font-size: 130%;
     padding: 0.2rem;
     border-color: rgba(255, 255, 255, 0);

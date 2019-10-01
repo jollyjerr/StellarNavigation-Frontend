@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import CytoscapeComponent from 'react-cytoscapejs';
 
 import './StellarSystem.css'
+import Jumper from './Jumper';
 
 export default class StellarSystem extends Component {
 
@@ -28,8 +29,17 @@ export default class StellarSystem extends Component {
 
     navigationCards = () => {
         return this.props.stellarSystem.largeCelestials.map((body, i) => {
-           return <button className="jumper" key={i}> {body.name} </button>
+           return <Jumper 
+                body={body} 
+                key={i}
+                jump={this.jump}
+            />
         })
+    }
+
+    jump = (id) => {
+        let node = this.cy.$(`#${id}`)
+        this.cy.fit(node)
     }
 
     
@@ -42,6 +52,9 @@ export default class StellarSystem extends Component {
                 <CytoscapeComponent 
                     elements={this.state.elements} 
                     style={{ width: this.state.w, height: this.state.h }}
+                    cy={(cy) => { this.cy = cy }}
+                    boxSelectionEnabled={false}
+                    autoungrabify={true}
                 />
             </div>
         ) 
