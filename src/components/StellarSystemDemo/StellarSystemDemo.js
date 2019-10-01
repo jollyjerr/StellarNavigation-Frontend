@@ -15,7 +15,7 @@ export default function StellarSystemDemo({stellarSystem}) {
     }
 
     return (
-        <Link to={`/${stellarSystem.name}`} style={{ textDecoration: 'none' }}>
+        <Link to={`/${stellarSystem.stud}`} style={{ textDecoration: 'none' }}>
             <div className="stellar-system-demo">
                 <div className="demo-heading">
                     <h2> {stellarSystem.name} </h2>

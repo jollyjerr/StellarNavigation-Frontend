@@ -12,7 +12,8 @@ const BACKEND_URL = 'http://127.0.0.1:5000/'
 export default class App extends Component {
 
   state = {
-    stellarSystems: []
+    stellarSystems: [],
+    selectedSystem: {largeCelestials: []}
   }
 
   componentDidMount = () => {
@@ -21,8 +22,14 @@ export default class App extends Component {
     .then(results => {
       this.setState({
         stellarSystems: results.systems,
-        home: false
+        stellarSystem: this.selectSystem(window.location.href.split('/')[3])
       })
+    })
+  }
+
+  selectSystem = (stud) => {
+    this.setState({
+        selectedSystem: this.state.stellarSystems.find(system => (system.stud === stud))
     })
   }
 
@@ -41,8 +48,9 @@ export default class App extends Component {
 
           <Route path="/:stellarsystem">
             <StellarSystem 
-              stellarSystem={this.state.stellarSystems[0]} 
+              stellarSystem={this.state.selectedSystem} 
               BACKEND_URL={BACKEND_URL}
+              selectSystem={this.selectSystem}
             />
           </Route>
 

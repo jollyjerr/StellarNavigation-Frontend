@@ -5,14 +5,11 @@ import './StellarSystem.css'
 import Jumper from './Jumper';
 
 export default class StellarSystem extends Component {
-
+    
     state = {
         w: 0,
         h: 0,
-        elements: [
-            { data: { id: 'one', label: 'Sorry' }, position: { x: 45, y: 200 }, style: {color: 'yellow'} },
-            { data: { id: 'two', label: 'Something went wrong' }, position: { x: 500, y: 500 }, style: {color: 'yellow'} }
-        ]
+        elements: []
     }
 
     componentDidMount = () => { 
@@ -25,12 +22,13 @@ export default class StellarSystem extends Component {
                 elements: results
             })
         })
+        .then(this.props.selectSystem(window.location.href.split('/')[3]))
     }
 
     navigationCards = () => {
-        return this.props.stellarSystem.largeCelestials.map((body, i) => {
+        return this.state.elements.map((body, i) => {
            return <Jumper 
-                body={body} 
+                body={body.data} 
                 key={i}
                 jump={this.jump}
             />
@@ -41,13 +39,12 @@ export default class StellarSystem extends Component {
         let node = this.cy.$(`#${id}`)
         this.cy.fit(node)
     }
-
-    
+ 
     render() {
         return(
             <div>
                 <menu className="navigation-menu" >
-                    {this.props.stellarSystem ?  this.navigationCards() : null}
+                    {this.navigationCards()}
                 </menu>
                 <CytoscapeComponent 
                     elements={this.state.elements} 
