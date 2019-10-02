@@ -19,10 +19,20 @@ export default class StellarSystem extends Component {
         })
     }
 
-    navigationCards = () => {
-        return this.props.stellarSystemData.map((body, i) => {
+    navigationCardsLarge = () => {
+        return this.props.stellarSystem.largeCelestials.map((body, i) => {
            return <Jumper 
-                body={body.data} 
+                body={body} 
+                key={i}
+                jump={this.jump}
+            />
+        })
+    }
+
+    navigationCardsSmall = () => {
+        return this.props.stellarSystem.smallCelestials.map((body, i) => {
+            return <Jumper
+                body={body}
                 key={i}
                 jump={this.jump}
             />
@@ -45,8 +55,11 @@ export default class StellarSystem extends Component {
             return(
                 <div>
                         <menu className="navigation-menu" >
-                            {this.navigationCards()}
+                            {this.navigationCardsLarge()}
                         </menu>
+                        {/* <menu className="navigation-menu">
+                            {this.navigationCardsSmall()}
+                        </menu> */}
                         <CytoscapeComponent 
                             elements={this.props.stellarSystemData} 
                             style={{ width: this.state.w, height: this.state.h }}
