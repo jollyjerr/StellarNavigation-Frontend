@@ -13,6 +13,15 @@ export default class StellarSystem extends Component {
         animation: false
     }
 
+    layout = {
+        name: 'concentric',
+        fit: false,
+        startAngle: 3/2 * Math.PI,
+        clockwise: true,
+        equidistant: false,
+        avoidOverlap: true
+    }
+
     componentDidMount = () => {
         this.setState({
             w: window.innerWidth, // kinda hacky...this will need refactored if window size changes
@@ -59,6 +68,7 @@ export default class StellarSystem extends Component {
  
     render() {
         if(this.props.stellarSystemData) {
+            // this.cy.layout(this.layout)
             return(
                 <div>
                         <menu className="navigation-menu" >

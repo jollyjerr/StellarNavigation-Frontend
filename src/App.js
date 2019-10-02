@@ -38,7 +38,7 @@ export default class App extends Component {
         .then(resp => resp.json())
         .then(results => {
           this.setState({
-            stellarSystemGraphData: [...this.state.stellarSystemGraphData, results]
+            stellarSystemGraphData: [results, ...this.state.stellarSystemGraphData]
           })
         })
     })
