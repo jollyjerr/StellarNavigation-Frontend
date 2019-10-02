@@ -13,24 +13,51 @@ export default class App extends Component {
 
   state = {
     stellarSystems: [],
-    selectedSystem: {largeCelestials: []}
+    stellarSystemGraphData: [],
+    selectedSystem: {}
   }
 
   componentDidMount = () => {
+    this.fetchStellarSystems()
+  }
+
+  fetchStellarSystems = () => {
     fetch(BACKEND_URL + 'stellarsystems')
-    .then(resp => resp.json())
-    .then(results => {
-      this.setState({
-        stellarSystems: results.systems,
-        stellarSystem: this.selectSystem(window.location.href.split('/')[3])
+      .then(resp => resp.json())
+      .then(results => {
+        this.setState({
+          stellarSystems: results.systems,
+        })
+        this.fetchStellarSystemCytoscapeData(results.systems)
       })
+  }
+
+  fetchStellarSystemCytoscapeData = (systems) => { //eslint-disable-next-line
+    systems.map(system => {
+      fetch(BACKEND_URL + `stellarsystem/${system.id}`)
+        .then(resp => resp.json())
+        .then(results => {
+          this.setState({
+            stellarSystemGraphData: [...this.state.stellarSystemGraphData, results]
+          })
+        })
     })
   }
 
-  selectSystem = (stud) => {
-    this.setState({
-        selectedSystem: this.state.stellarSystems.find(system => (system.stud === stud))
+  selectSystem = (name, stud) => {
+    if(stud) {
+      this.setState({
+        selectedSystem: this.state.stellarSystems.find(system => {
+          return system.stud === stud
+        })
+      })
+    } else {
+      this.setState({
+      selectedSystem: this.state.stellarSystems.find(system => {
+        return system.name === name
+      })
     })
+    }
   }
 
   render() {
@@ -42,15 +69,17 @@ export default class App extends Component {
 
           <Route path="/" exact>
             <Home 
+              selectSystem={this.selectSystem}
               stellarSystems={this.state.stellarSystems}
             />
           </Route>
 
           <Route path="/:stellarsystem">
             <StellarSystem 
-              stellarSystem={this.state.selectedSystem} 
               BACKEND_URL={BACKEND_URL}
               selectSystem={this.selectSystem}
+              stellarSystem={this.state.selectedSystem}
+              stellarSystemData={this.state.stellarSystemGraphData[this.state.stellarSystems.indexOf(this.state.selectedSystem)]}
             />
           </Route>
 

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 import logo from './demoLogo.png'
 
-export default function StellarSystemDemo({stellarSystem}) {
+export default function StellarSystemDemo({stellarSystem, selectSystem}) {
 
     const largeCelestials = () => {
        return stellarSystem.largeCelestials.map((body, i) => {
@@ -16,7 +16,7 @@ export default function StellarSystemDemo({stellarSystem}) {
 
     return (
         <Link to={`/${stellarSystem.stud}`} style={{ textDecoration: 'none' }}>
-            <div className="stellar-system-demo">
+            <div className="stellar-system-demo" onClick={() => selectSystem(stellarSystem.name)}>
                 <div className="demo-heading">
                     <h2> {stellarSystem.name} </h2>
                     <img src={logo} alt={stellarSystem.name} />
