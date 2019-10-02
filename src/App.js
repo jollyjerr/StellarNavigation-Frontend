@@ -61,11 +61,12 @@ export default class App extends Component {
   }
 
   render() {
+    console.log(this.state.stellarSystemGraphData[this.state.stellarSystems.indexOf(this.state.selectedSystem)])
     return (
       <Router>
       <div>
 
-          <Navbar />
+          <Navbar name={this.state.selectedSystem.name} />
 
           <Route path="/" exact>
             <Home 

@@ -74,7 +74,7 @@ export default class StellarSystem extends Component {
                         <menu className="navigation-menu" >
                             {this.navigationCardsLarge()}
                         </menu>
-                        <button className='animate-button' onClick={this.animate}>
+                        <button className='navigation-button' onClick={this.animate}>
                             Animation: {this.state.animation ? 'On' : 'Off'}
                         </button>
                         {/* <menu className="navigation-menu">
