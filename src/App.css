@@ -1,5 +1,6 @@
 html body {
     width: 100%;
+    height: 100%;
     font-family: 'Space Mono', monospace;
     text-shadow: 1px 1px #6b6b6b;
 }
@@ -14,7 +15,7 @@ html body {
 .demo_cards {
     width: 80%;
     background-color: #6b6b6b;
-    height: 100%;
+    height: max-content;
     border-radius: 20px;
 }
 

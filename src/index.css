@@ -201,42 +201,6 @@ a:visited {
     }
 }
 
-@keyframes move-clouds-back {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 10000px 0;
-    }
-}
-
-@-webkit-keyframes move-clouds-back {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 10000px 0;
-    }
-}
-
-@-moz-keyframes move-clouds-back {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 10000px 0;
-    }
-}
-
-@-ms-keyframes move-clouds-back {
-    from {
-        background-position: 0;
-    }
-    to {
-        background-position: 10000px 0;
-    }
-}
-
 .stars,
 .twinkling {
     position: absolute;

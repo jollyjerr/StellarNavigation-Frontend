@@ -12,6 +12,22 @@
     border-radius: 20px;
 }
 
+.small-navigation-menu {
+    z-index: 100;
+    background-color: #6b6b6b;
+    color: whitesmoke;
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+    bottom: 0;
+    width: 30rem;
+    height: max-content;
+    padding: 2em;
+    margin: 2rem;
+    border-radius: 20px;
+    overflow: scroll;
+}
+
 .navigation-button {
     font-family: 'Space Mono', monospace;
     z-index: 100;

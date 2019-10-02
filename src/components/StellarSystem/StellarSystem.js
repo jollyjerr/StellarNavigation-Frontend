@@ -77,9 +77,9 @@ export default class StellarSystem extends Component {
                         <button className='navigation-button' onClick={this.animate}>
                             Animation: {this.state.animation ? 'On' : 'Off'}
                         </button>
-                        {/* <menu className="navigation-menu">
+                        <menu className="small-navigation-menu">
                             {this.navigationCardsSmall()}
-                        </menu> */}
+                        </menu>
                         <CytoscapeComponent 
                             elements={this.props.stellarSystemData} 
                             style={{ width: this.state.w, height: this.state.h }}
