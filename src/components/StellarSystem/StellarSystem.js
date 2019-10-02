@@ -9,7 +9,8 @@ export default class StellarSystem extends Component {
     
     state = {
         w: 0,
-        h: 0
+        h: 0,
+        animation: false
     }
 
     componentDidMount = () => {
@@ -49,6 +50,12 @@ export default class StellarSystem extends Component {
                 this.props.selectSystem(null, window.location.href.split('/')[3])
         }
     }
+
+    animate = () => {
+        this.setState({
+            animation: !this.state.animation
+        })
+    }
  
     render() {
         if(this.props.stellarSystemData) {
@@ -57,6 +64,9 @@ export default class StellarSystem extends Component {
                         <menu className="navigation-menu" >
                             {this.navigationCardsLarge()}
                         </menu>
+                        <button className='animate-button' onClick={this.animate}>
+                            Animation: {this.state.animation ? 'On' : 'Off'}
+                        </button>
                         {/* <menu className="navigation-menu">
                             {this.navigationCardsSmall()}
                         </menu> */}
