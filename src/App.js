@@ -125,6 +125,7 @@ export default class App extends Component {
             <Home 
               selectSystem={this.selectSystem}
               stellarSystems={this.state.stellarSystems}
+              currentTrip={this.state.currentTrip}
             />
           </Route>
 

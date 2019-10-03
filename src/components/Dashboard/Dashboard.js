@@ -2,7 +2,7 @@ import React from 'react'
 import Clock from 'react-live-clock'
 import './Dashboard.css'
 
-export default function Dashboard() {
+export default function Dashboard({currentTrip}) {
     return (
         <div className="dashboard">
             <h1 className="brand_name">Stellar Navigation</h1>
@@ -11,7 +11,7 @@ export default function Dashboard() {
                 <Clock format={'HH:mm:ss'} ticking={true} timezone={'UTC'} /> 
                 <p>UTC</p> 
             </div> 
-            <button>Calculate Trip Requirements</button>
+            {currentTrip.length >= 1 ? <button className="calculate-button" > Calculate Trip Requirements</button> : null}
         </div>
     )
 }

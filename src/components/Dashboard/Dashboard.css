@@ -10,3 +10,14 @@
     font-size: 200%;
     margin: 3rem;
 }
+
+.calculate-button {
+    font-family: 'Space Mono', monospace;
+    background-color: #6b6b6b;
+    color: whitesmoke;
+    width: max-content;
+    padding: 2em;
+    margin: 2rem;
+    border-radius: 20px;
+    border: none;
+}
