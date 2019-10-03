@@ -18,6 +18,18 @@ export default class StellarSystem extends Component {
             w: window.innerWidth, // kinda hacky...this will need refactored if window size changes
             h: window.innerHeight
         })
+        if(this.cy) {
+            this.setUpListeners()
+        }
+    }
+
+    setUpListeners = () => {
+        if(this.cy){
+            this.cy.on('click', 'node', (event) => {
+                let node = event.target
+                this.props.addStop(node.id())
+            })
+        }
     }
 
     navigationCardsLarge = () => {
@@ -48,6 +60,10 @@ export default class StellarSystem extends Component {
     establishCurrentSystem = () => {
         if(!this.props.stellarSystemData) {
                 this.props.selectSystem(null, window.location.href.split('/')[3])
+        }
+        if (this.cy) {
+            this.cy.removeAllListeners()
+            this.setUpListeners()
         }
     }
 

@@ -85,9 +85,19 @@ export default class App extends Component {
   }
 
   addStop = (id) => {
-    let stop = this.state.selectedSystem.find(body => (
-      body.id === id
-    ))
+    let stop = {}
+    if(id > 500) {
+      stop = this.state.selectedSystem.smallCelestials.find(body => (
+        body.id === id / 500
+      ))
+      console.log('small', stop)
+    } else {
+      stop = this.state.selectedSystem.largeCelestials.find(body => (
+        body.id === id
+      ))
+      console.log()
+      console.log('large', stop)
+    }
     this.setState({
       currentTrip: [...this.state.currentTrip, stop]
     })
