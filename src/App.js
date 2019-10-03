@@ -33,15 +33,18 @@ export default class App extends Component {
   }
 
   fetchStellarSystemCytoscapeData = (systems) => { //eslint-disable-next-line
-    systems.map(system => {
-      fetch(BACKEND_URL + `stellarsystem/${system.id}`)
-        .then(resp => resp.json())
-        .then(results => {
-          this.setState({
-            stellarSystemGraphData: [results, ...this.state.stellarSystemGraphData]
-          })
-        })
+    let promises = systems.map(system => {
+      return fetch(BACKEND_URL + `stellarsystem/${system.id}`)
     })
+    Promise.all(promises)
+      .then(responses => responses.forEach(resp => {
+        resp.json()
+        .then(results => {
+              this.setState({
+                stellarSystemGraphData: [results, ...this.state.stellarSystemGraphData]
+              })
+        })
+      }))
   }
 
   selectSystem = (name, stud) => {
@@ -67,7 +70,6 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(this.state.stellarSystemGraphData[this.state.stellarSystems.indexOf(this.state.selectedSystem)])
     return (
       <Router>
       <div>
