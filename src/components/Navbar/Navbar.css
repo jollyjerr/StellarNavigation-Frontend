@@ -11,3 +11,17 @@
     display: inline;
     font-size: 220%;
 }
+
+.view-trip {
+    font-family: 'Space Mono', monospace;
+    z-index: 100;
+    background-color: #6b6b6b;
+    color: whitesmoke;
+    position: absolute;
+    right: 0;
+    width: 20em;
+    padding: 2em;
+    margin: 2rem;
+    border-radius: 20px;
+    border: none;
+}

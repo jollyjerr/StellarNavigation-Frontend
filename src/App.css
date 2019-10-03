@@ -38,3 +38,18 @@ html body {
     transform: scale(1.5);
     line-height: 0;
 }
+
+.planner {
+    z-index: 200;
+    background-color: #0a0a0a;
+    color: whitesmoke;
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: max-content;
+    padding: 2em;
+    border-radius: 10px;
+    overflow: scroll;
+}

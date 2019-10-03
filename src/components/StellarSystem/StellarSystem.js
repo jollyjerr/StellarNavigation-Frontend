@@ -80,9 +80,9 @@ export default class StellarSystem extends Component {
                         <menu className="navigation-menu" >
                             {this.navigationCardsLarge()}
                         </menu>
-                        <button className='navigation-button' onClick={this.animate}>
+                        {/* <button className='navigation-button' onClick={this.animate}>
                             Animation: {this.state.animation ? 'On' : 'Off'}
-                        </button>
+                        </button> */}
                         {this.props.stellarSystem.smallCelestials.length >= 1 ? <menu className="small-navigation-menu">{this.navigationCardsSmall()}</menu> : null}
                         <CytoscapeComponent 
                             elements={this.props.stellarSystemData} 

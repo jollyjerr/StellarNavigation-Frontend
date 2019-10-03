@@ -72,15 +72,9 @@ export default class App extends Component {
     })
   }
 
-  startPlanning = () => {
+  togglePlanning = () => {
     this.setState({
-      isPlanning: true
-    })
-  }
-
-  stopPlanning = () => {
-    this.setState({
-      isPlanning: false
+      isPlanning: !this.state.isPlanning
     })
   }
 
@@ -105,7 +99,12 @@ export default class App extends Component {
       <Router>
       <div>
 
-          <Navbar name={this.state.selectedSystem.name} clearSelected={this.clearSelected} />
+          <Navbar 
+            name={this.state.selectedSystem.name}
+            clearSelected={this.clearSelected}
+            currentTrip={this.state.currentTrip}
+            togglePlanning={this.togglePlanning}
+          />
 
           <Route path="/" exact>
             <Home 
@@ -120,13 +119,12 @@ export default class App extends Component {
               selectSystem={this.selectSystem}
               stellarSystem={this.state.selectedSystem}
               stellarSystemData={this.state.stellarSystemGraphData[this.state.stellarSystems.indexOf(this.state.selectedSystem)]}
-              startPlanning={this.startPlanning}
-              stopPlanning={this.stopPlanning}
+              togglePlanning={this.togglePlanning}
               addStop={this.addStop}
             />
           </Route>
 
-          {this.state.isPlanning ? <Planner stellarSystems={this.state.currentTrip} /> : null}
+          {this.state.isPlanning ? <Planner destinations={this.state.currentTrip} /> : null}
 
       </div>
       </Router>
