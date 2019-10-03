@@ -6,3 +6,8 @@
 .navbar img {
     width: 5rem;
 }
+
+.navbar h1 {
+    display: inline;
+    font-size: 220%;
+}

@@ -13,15 +13,6 @@ export default class StellarSystem extends Component {
         animation: false
     }
 
-    layout = {
-        name: 'concentric',
-        fit: false,
-        startAngle: 3/2 * Math.PI,
-        clockwise: true,
-        equidistant: false,
-        avoidOverlap: true
-    }
-
     componentDidMount = () => {
         this.setState({
             w: window.innerWidth, // kinda hacky...this will need refactored if window size changes
@@ -68,7 +59,6 @@ export default class StellarSystem extends Component {
  
     render() {
         if(this.props.stellarSystemData) {
-            // this.cy.layout(this.layout)
             return(
                 <div>
                         <menu className="navigation-menu" >
@@ -77,9 +67,7 @@ export default class StellarSystem extends Component {
                         <button className='navigation-button' onClick={this.animate}>
                             Animation: {this.state.animation ? 'On' : 'Off'}
                         </button>
-                        <menu className="small-navigation-menu">
-                            {this.navigationCardsSmall()}
-                        </menu>
+                        {this.props.stellarSystem.smallCelestials.length >= 1 ? <menu className="small-navigation-menu">{this.navigationCardsSmall()}</menu> : null}
                         <CytoscapeComponent 
                             elements={this.props.stellarSystemData} 
                             style={{ width: this.state.w, height: this.state.h }}
@@ -92,7 +80,7 @@ export default class StellarSystem extends Component {
         } else {
             setTimeout(() => {
                 this.establishCurrentSystem()
-            }, 3000);
+            }, 2000);
             return <Loading />
         }
     }

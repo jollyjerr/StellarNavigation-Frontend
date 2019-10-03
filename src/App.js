@@ -60,13 +60,19 @@ export default class App extends Component {
     }
   }
 
+  clearSelected = () => {
+    this.setState({
+      selectedSystem: {}
+    })
+  }
+
   render() {
     console.log(this.state.stellarSystemGraphData[this.state.stellarSystems.indexOf(this.state.selectedSystem)])
     return (
       <Router>
       <div>
 
-          <Navbar name={this.state.selectedSystem.name} />
+          <Navbar name={this.state.selectedSystem.name} clearSelected={this.clearSelected} />
 
           <Route path="/" exact>
             <Home 
