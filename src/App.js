@@ -90,13 +90,10 @@ export default class App extends Component {
       stop = this.state.selectedSystem.smallCelestials.find(body => (
         body.id === id / 500
       ))
-      console.log('small', stop)
     } else {
       stop = this.state.selectedSystem.largeCelestials.find(body => (
-        body.id === id
+        body.id == id //hacky because cy.js is returning an odd int format
       ))
-      console.log()
-      console.log('large', stop)
     }
     this.setState({
       currentTrip: [...this.state.currentTrip, stop]
