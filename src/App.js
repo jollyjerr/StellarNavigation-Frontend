@@ -78,14 +78,14 @@ export default class App extends Component {
     })
   }
 
-  addStop = (id) => {
+  addStop = (id) => { 
     let stop = {}
     if(id > 500) {
       stop = this.state.selectedSystem.smallCelestials.find(body => (
         body.id === id / 500
       ))
     } else {
-      stop = this.state.selectedSystem.largeCelestials.find(body => (
+      stop = this.state.selectedSystem.largeCelestials.find(body => ( //eslint-disable-next-line
         body.id == id //hacky because cy.js is returning an odd int format
       ))
     }

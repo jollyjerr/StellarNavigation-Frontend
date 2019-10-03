@@ -1,3 +1,12 @@
+.dashboard {
+    text-align: center;
+}
+
 .brand_name {
-    font-size: 320%;
+    font-size: 420%;
+}
+
+.clock {
+    font-size: 200%;
+    margin: 3rem;
 }
