@@ -6,6 +6,7 @@ import './App.css';
 import Home from './containers/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import StellarSystem from './components/StellarSystem/StellarSystem';
+import Planner from './components/Planner/Planner';
 
 const BACKEND_URL = 'http://127.0.0.1:5000/'
 
@@ -14,7 +15,9 @@ export default class App extends Component {
   state = {
     stellarSystems: [],
     stellarSystemGraphData: [],
-    selectedSystem: {}
+    selectedSystem: {},
+    currentTrip: [],
+    isPlanning: false
   }
 
   componentDidMount = () => {
@@ -44,7 +47,7 @@ export default class App extends Component {
                 stellarSystemGraphData: [results, ...this.state.stellarSystemGraphData]
               })
         })
-      }))
+    }))
   }
 
   selectSystem = (name, stud) => {
@@ -69,6 +72,27 @@ export default class App extends Component {
     })
   }
 
+  startPlanning = () => {
+    this.setState({
+      isPlanning: true
+    })
+  }
+
+  stopPlanning = () => {
+    this.setState({
+      isPlanning: false
+    })
+  }
+
+  addStop = (id) => {
+    let stop = this.state.selectedSystem.find(body => (
+      body.id === id
+    ))
+    this.setState({
+      currentTrip: [...this.state.currentTrip, stop]
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -89,8 +113,13 @@ export default class App extends Component {
               selectSystem={this.selectSystem}
               stellarSystem={this.state.selectedSystem}
               stellarSystemData={this.state.stellarSystemGraphData[this.state.stellarSystems.indexOf(this.state.selectedSystem)]}
+              startPlanning={this.startPlanning}
+              stopPlanning={this.stopPlanning}
+              addStop={this.addStop}
             />
           </Route>
+
+          {this.state.isPlanning ? <Planner stellarSystems={this.state.currentTrip} /> : null}
 
       </div>
       </Router>
