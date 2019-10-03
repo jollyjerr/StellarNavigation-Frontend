@@ -4,7 +4,7 @@ import StellarSystemDemo from '../../components/StellarSystemDemo/StellarSystemD
 import Dashboard from '../../components/Dashboard/Dashboard'
 
 export default function Home(props) {
-    const {stellarSystems, selectSystem, currentTrip} = props
+    const {stellarSystems, selectSystem, currentTrip, sendCalculationRequest} = props
 
     const stellarSystemCards = () => {
         return stellarSystems.map((stellarSystem, i) => {
@@ -18,7 +18,10 @@ export default function Home(props) {
 
     return (
         <div className="home">
-            <Dashboard currentTrip={currentTrip} />
+            <Dashboard 
+                currentTrip={currentTrip} 
+                sendCalculationRequest={sendCalculationRequest}
+            />
             <div className="demo_cards">
                 {stellarSystemCards()}
             </div>

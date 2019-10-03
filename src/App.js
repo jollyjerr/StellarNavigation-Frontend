@@ -17,6 +17,7 @@ export default class App extends Component {
     stellarSystemGraphData: [],
     selectedSystem: {},
     currentTrip: [],
+    tripDetails: {},
     isPlanning: false
   }
 
@@ -109,6 +110,23 @@ export default class App extends Component {
     }
   }
 
+  sendCalculationRequest = () => {
+    fetch(BACKEND_URL + 'trip', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(this.state.currentTrip)
+    })
+    .then(resp => resp.json())
+    .then(results => {
+      this.setState({
+        tripDetails: results
+      })
+    })
+    .catch(alert)
+  }
+
   render() {
     return (
       <Router>
@@ -126,6 +144,7 @@ export default class App extends Component {
               selectSystem={this.selectSystem}
               stellarSystems={this.state.stellarSystems}
               currentTrip={this.state.currentTrip}
+              sendCalculationRequest={this.sendCalculationRequest}
             />
           </Route>
 
