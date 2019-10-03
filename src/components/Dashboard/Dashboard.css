@@ -21,3 +21,19 @@
     border-radius: 20px;
     border: none;
 }
+
+.trip-details {
+    background-color: #6b6b6b;
+    color: whitesmoke;
+    padding: 2em;
+    margin: 2rem;
+    border-radius: 20px;
+}
+
+.trip-details-back {
+    background-color: #6b6b6b;
+    color: whitesmoke;
+    width: max-content;
+    margin: 1rem;
+    border-radius: 20px;
+}

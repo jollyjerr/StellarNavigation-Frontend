@@ -18,7 +18,8 @@ export default class App extends Component {
     selectedSystem: {},
     currentTrip: [],
     tripDetails: {},
-    isPlanning: false
+    isPlanning: false,
+    isViewingDetails: false
   }
 
   componentDidMount = () => {
@@ -76,6 +77,12 @@ export default class App extends Component {
   togglePlanning = () => {
     this.setState({
       isPlanning: !this.state.isPlanning
+    })
+  }
+
+  toggleDetails = () => {
+    this.setState({
+      isViewingDetails: !this.state.isViewingDetails
     })
   }
 
@@ -145,6 +152,9 @@ export default class App extends Component {
               stellarSystems={this.state.stellarSystems}
               currentTrip={this.state.currentTrip}
               sendCalculationRequest={this.sendCalculationRequest}
+              isViewingDetails={this.state.isViewingDetails}
+              toggleDetails={this.toggleDetails}
+              tripDetails={this.state.tripDetails}
             />
           </Route>
 
