@@ -89,9 +89,24 @@ export default class App extends Component {
         body.id == id //hacky because cy.js is returning an odd int format
       ))
     }
-    this.setState({
+    if(!this.state.currentTrip.includes(stop)) {
+      this.setState({
       currentTrip: [...this.state.currentTrip, stop]
     })
+    }
+  }
+
+  removeStop = (index) => {
+    this.setState({
+      currentTrip: [...this.state.currentTrip].filter(stop => {
+        return [...this.state.currentTrip].indexOf(stop) !== index
+      })
+    })
+    if (this.state.currentTrip.length === 1) {
+      this.setState({
+        isPlanning: false
+      })
+    }
   }
 
   render() {
@@ -124,7 +139,7 @@ export default class App extends Component {
             />
           </Route>
 
-          {this.state.isPlanning ? <Planner destinations={this.state.currentTrip} /> : null}
+          {this.state.isPlanning ? <Planner destinations={this.state.currentTrip} removeStop={this.removeStop} /> : null}
 
       </div>
       </Router>

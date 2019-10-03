@@ -1,10 +1,15 @@
 import React from 'react'
 
-export default function Planner({destinations}) {
+export default function Planner({destinations, removeStop}) {
 
     const cards = () => {
        return destinations.map((destination, i) => (
-            <h2> {destination.name} key={i} </h2>
+           <div className="destination" onClick={() => removeStop(i)} >
+               <h2 key={i} > {destination.name}  </h2>
+               <p> Classification: Celestial {destination.classification} </p>
+               <p> Orbital Period: {destination.orbital_period} Earth days </p>
+               <p> Radius: {destination.radius} km </p>
+           </div>
         ))
     } 
 

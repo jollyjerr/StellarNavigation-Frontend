@@ -48,8 +48,14 @@ html body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: max-content;
+    height: 11rem;
     padding: 2em;
     border-radius: 10px;
     overflow: scroll;
+}
+
+.destination {
+    width: 20rem;
+    padding: 2em;
+    height: 11rem;
 }
