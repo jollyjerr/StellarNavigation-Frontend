@@ -11,7 +11,7 @@ export default function Dashboard({currentTrip, sendCalculationRequest, isViewin
 
     const names = () => {
         if(tripDetails.names){
-            return tripDetails.names.map(name => (<li> {name} </li>))
+            return tripDetails.names.map(name => (<li className="name"> {name} </li>))
         }
     }
 
