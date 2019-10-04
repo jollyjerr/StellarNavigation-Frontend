@@ -19,7 +19,7 @@ This exciting project was developed during a single week of my time at Flatiron 
 
 ... and more!
 
-*This README is specific to the projects frontend, for the backend readme, see [here](https://github.com/jollyjerr/StellarNavigation-Backend)*
+*This README is specific to the projects frontend, for the backend README, see [here](https://github.com/jollyjerr/StellarNavigation-Backend)*
 
 ## Features
 
