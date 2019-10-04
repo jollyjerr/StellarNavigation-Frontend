@@ -136,6 +136,14 @@ table {
     border-spacing: 0;
 }
 
+button:focus {
+    outline: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
 header {
     background-color: rgba(33, 33, 33, 0.9);
     color: #ffffff;

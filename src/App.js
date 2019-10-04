@@ -88,7 +88,7 @@ export default class App extends Component {
 
   addStop = (id) => { 
     let stop = {}
-    if(id > 500) {
+    if(id >= 500) {
       stop = this.state.selectedSystem.smallCelestials.find(body => (
         body.id === id / 500
       ))
