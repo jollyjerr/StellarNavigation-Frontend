@@ -16,6 +16,7 @@ export default class App extends Component {
     stellarSystems: [],
     stellarSystemGraphData: [],
     selectedSystem: {},
+    prevSystem: {},
     currentTrip: [],
     tripDetails: {},
     isPlanning: false,
@@ -69,9 +70,16 @@ export default class App extends Component {
   }
 
   clearSelected = () => {
-    this.setState({
+    if (!this.state.currentTrip.every(body => this.state.selectedSystem.largeCelestials.concat(this.state.selectedSystem.smallCelestials).includes(body))) {
+      this.setState({
+        selectSystem: {}
+      })
+    } else {
+      this.setState({
+      prevSystem: this.state.selectedSystem,
       selectedSystem: {}
     })
+    }
   }
 
   togglePlanning = () => {
@@ -118,12 +126,12 @@ export default class App extends Component {
   }
 
   sendCalculationRequest = () => {
-    fetch(BACKEND_URL + 'trip', {
+      fetch(BACKEND_URL + 'trip', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(this.state.currentTrip)
+      body: JSON.stringify(this.state.currentTrip.concat(this.calculateStellarSystemChange(this.state.currentTrip)))
     })
     .then(resp => resp.json())
     .then(results => {
@@ -132,6 +140,18 @@ export default class App extends Component {
       })
     })
     .catch(alert)
+  }
+
+  calculateStellarSystemChange = (bodies) => {
+    let solarToAlpha = {
+      name: 'Solar System to Alpha Centauri System',
+      semi_major_axis: 41343392165178.1
+    }
+    if(!bodies.every(body => this.state.prevSystem.largeCelestials.concat(this.state.prevSystem.smallCelestials).includes(body))){
+      return solarToAlpha
+    } else {
+      return {name: '', semi_major_axis: 0}
+    }
   }
 
   render() {
