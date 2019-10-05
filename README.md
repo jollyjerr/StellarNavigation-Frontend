@@ -29,7 +29,7 @@ large and small celestial bodies with the two provided navigation bars.
 
 ![navigation](https://github.com/jollyjerr/StellarNavigation-Backend/blob/master/GitHubFiles/nav.gif)
 
-Users can visit multiple stellar systems withen the same session - and click on multiple celestial bodies to add them
+Users can visit multiple stellar systems within the same session - and click on multiple celestial bodies to add them
 to their current trip.
 
 ![adding celestials](https://github.com/jollyjerr/StellarNavigation-Backend/blob/master/GitHubFiles/differentSystems.gif)
